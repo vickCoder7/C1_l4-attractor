@@ -46,7 +46,7 @@ def cycle_period(t, algae):
     """Mean peak-to-peak spacing in days, and the peak times."""
     p = peaks(t, algae)
     if len(p) < 3:
-        return np.NaN, t[p]
+        return np.nan, t[p]
     return (t[p[-1]] - t[p[0]]) / (len(p) - 1), t[p]
 
 
@@ -63,7 +63,7 @@ def main():
         peak_times.append(tp)
     # peak times padded to a common length, one row per run
     width = max(len(tp) for tp in peak_times)
-    table = np.full((len(files), width), np.NaN)
+    table = np.full((len(files), width), np.nan)
     for i, tp in enumerate(peak_times):
         table[i, : len(tp)] = tp
     print(f"{'run':<5}{'samples':>9}{'peaks':>7}{'period (days)':>15}")
